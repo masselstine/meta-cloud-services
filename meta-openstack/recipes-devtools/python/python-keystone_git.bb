@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1dece7821bf3fd70fe1309eaa37d52a2"
 
 SRCNAME = "keystone"
 
-SRC_URI = "git://github.com/openstack/${SRCNAME}.git;branch=master \
+SRC_URI = "git://github.com/openstack/${SRCNAME}.git;branch=stable/newton \
            file://keystone.conf \
            file://identity.sh \
            file://keystone \
@@ -19,8 +19,8 @@ SRC_URI = "git://github.com/openstack/${SRCNAME}.git;branch=master \
 # file://keystone-remove-git-commands-in-tests.patch 
 # file://keystone-explicitly-import-localcontext-from-oslo.me.patch
 
-SRCREV = "8dcd82fb9c76d43f26338bee293b32f4af473ad9"
-PV = "8.0.0+git${SRCPV}"
+SRCREV = "b9b0bee28774dc645fa0183533393363f8c31448"
+PV = "10.0.0+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
@@ -249,37 +249,39 @@ DEPENDS += " \
         "
 
 RDEPENDS_${PN} += " \
-        python-pycadf \
-        python-oslo.db \
-        python-pam \
+        python-babel \
+        python-pbr \
         python-webob \
-        python-eventlet \
-        python-greenlet \
         python-pastedeploy \
         python-paste \
         python-routes \
+        python-cryptography \
+        python-six \
         python-sqlalchemy \
         python-sqlalchemy-migrate \
+        python-stevedore \
         python-passlib \
-        python-lxml \
-        python-iso8601 \
         python-keystoneclient \
-        python-openstack-nose \
+        python-keystonemiddleware \
+        python-oslo.cache \
+        python-oslo.concurrency \
         python-oslo.config \
-        python-dogpile.core \
-        python-dogpile.cache \
-        python-pbr \
-        python-pysaml2 \
+        python-oslo.context \
+        python-oslo.messaging \
+        python-oslo.db \
+        python-oslo.i18n \
+        python-oslo.log \
+        python-oslo.middleware \
         python-oslo.policy \
+        python-oslo.serialization \
         python-oslo.utils \
         python-oauthlib \
-        python-fixtures \
-        python-oslotest \
-        python-functools32 \
-        python-six \
-        python-routes \
+        python-pysaml2 \
+        python-dogpile.cache \
+        python-jsonschema \
         python-pycadf \
-        python-cryptography \
+        python-msgpack-python \
+        python-osprofiler \
         "
 
 RDEPENDS_${SRCNAME}-tests += " bash"
