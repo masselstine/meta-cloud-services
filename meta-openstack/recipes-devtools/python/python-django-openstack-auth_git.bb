@@ -6,10 +6,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1dece7821bf3fd70fe1309eaa37d52a2"
 
 SRCNAME = "django_openstack_auth"
 
-PV = "2.0.0+git${SRCPV}"
-SRCREV = "6e2cd8deffbd60074bf036c1cecdb280f281ccd4"
+PV = "2.4.2+git${SRCPV}"
+SRCREV = "08e96550a31b98b7ee3278b3b6a73e93e79ac343"
 
-SRC_URI = "git://github.com/openstack/${SRCNAME}.git;branch=master \
+SRC_URI = "git://github.com/openstack/${SRCNAME}.git;branch=stable/newton \
 "
 
 S = "${WORKDIR}/git"
@@ -21,7 +21,12 @@ DEPENDS += " \
         python-pbr \
         "
 
-RDEPENDS_${PN} += "python-django  \
-	python-keystoneclient  \
-	python-pbr \
-	"
+RDEPENDS_${PN} += " \
+        python-pbr \
+        python-django \
+        python-oslo.config \
+        python-oslo.policy \
+        python-keystoneclient \
+        python-keystoneauth1 \
+        python-six \
+        "
