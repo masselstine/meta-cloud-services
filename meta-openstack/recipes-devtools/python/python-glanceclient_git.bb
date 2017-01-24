@@ -9,12 +9,11 @@ DEPENDS += " \
         python-pbr \
         "
 
-SRCREV = "86635868c1eb3aec0c065c12cb9928c613940f36"
-PV = "1.1.0+git${SRCPV}"
+SRCREV = "2d1115b4a8356d6d48d3466b63b32f8fc539afd0"
+PV = "2.5.0+git${SRCPV}"
 
 SRC_URI = "\
-	git://github.com/openstack/${BPN}.git;protocol=https \
-	file://fix_glanceclient_memory_leak.patch \
+	git://github.com/openstack/${BPN}.git;branch=stable/newton \
 	file://glance-api-check.sh \
 	"
 
@@ -29,13 +28,18 @@ DEPENDS += " \
     python-pbr-native \
     "
 
-RDEPENDS_${PN} = "gmp \
-   python-warlock \
-   python-pyopenssl \
-   python-prettytable \
-   python-setuptools-git \
-   python-pbr \
+RDEPENDS_${PN} += " \
+   gmp \
    bash \
+   python-pbr \
+   python-babel \
+   python-prettytable \
+   python-keystoneclient \
+   python-requests \
+   python-warlock \
+   python-six \
+   python-oslo.utils \
+   python-oslo.i18n \
    "
 
 MONITOR_CHECKS_${PN} += "\
