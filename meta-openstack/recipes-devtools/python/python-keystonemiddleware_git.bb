@@ -7,11 +7,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4a4d0e932ffae1c0131528d30d419c55"
 SRCNAME = "keystonemiddleware"
 
 SRC_URI = "\
-	git://git.openstack.org/openstack/keystonemiddleware;branch=master \
+	git://git.openstack.org/openstack/keystonemiddleware;branch=stable/newton \
 	"
 
-PV = "2.3.0+git${SRCPV}"
-SRCREV = "62805857ea39710ba14ab9a4e6c606dc336c6b56"
+PV = "4.9.0+git${SRCPV}"
+SRCREV = "675ac3effa8649d162dabe25aea6d241a6f54b2b"
 S = "${WORKDIR}/git"
 
 inherit setuptools
@@ -22,5 +22,17 @@ DEPENDS += " \
         "
 
 RDEPENDS_${PN} += " \
-	python-pbr \
-	"
+        python-keystoneauth1 \
+        python-oslo.config \
+        python-oslo.context \
+        python-oslo.i18n \
+        python-oslo.serialization \
+        python-oslo.utils \
+        python-pbr \
+        python-positional \
+        python-pycadf \
+        python-keystoneclient \
+        python-requests \
+        python-six \
+        python-webob \
+        "
