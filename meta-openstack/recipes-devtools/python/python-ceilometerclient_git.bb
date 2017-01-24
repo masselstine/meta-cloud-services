@@ -9,30 +9,25 @@ DEPENDS += " \
         python-pbr \
         "
 
-RDEPENDS_${PN} +=" \
-        python-cliff \
-	python-httplib2 \
-	python-iso8601 \
-	python-prettytable \
-	python-pyparsing \
-	python-simplejson \
-	python-pbr \
+RDEPENDS_${PN} += " \
+        python-pbr \
+        python-iso8601 \
+        python-keystoneauth1 \
         python-oslo.i18n \
         python-oslo.serialization \
         python-oslo.utils \
-        python-keystoneclient \
+        python-prettytable \
         python-requests \
         python-six \
         python-stevedore \
-	"
+        "
 
 SRC_URI = "\
-	git://github.com/openstack/python-ceilometerclient.git;branch=master \
-	file://fix_ceilometerclient_memory_leak.patch \
+	git://github.com/openstack/python-ceilometerclient.git;branch=stable/newton \
 	"
 
-PV = "1.5.0+git${SRCPV}"
-SRCREV = "daed7e59c383f1ca74d75160cbc99fbd89675648"
+PV = "2.6.2+git${SRCPV}"
+SRCREV = "9d9b477708fdce08db162a9bf3723cf7ee0df267"
 S = "${WORKDIR}/git"
 
 inherit setuptools rmargparse
