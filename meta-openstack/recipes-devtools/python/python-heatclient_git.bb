@@ -14,22 +14,28 @@ DEPENDS += " \
         python-pbr-native \
         "
 
-RDEPENDS_${PN} +="python-cliff \
-	python-httplib2 \
-	python-iso8601 \
-	python-prettytable \
-	python-pyparsing \
-	python-simplejson \
-	python-pbr \
-	"
-
-PR = "r0"
+RDEPENDS_${PN} += " \
+        python-babel \
+        python-pbr \
+        python-cliff \
+        python-iso8601 \
+        python-osc-lib \
+        python-prettytable \
+        python-oslo.i18n \
+        python-oslo.serialization \
+        python-oslo.utils \
+        python-keystoneauth1 \
+        python-swiftclient \
+        python-pyyaml \
+        python-requests \
+        python-six \
+        "
 SRCNAME = "heatclient"
 
-SRC_URI = "git://github.com/openstack/python-heatclient.git;branch=master"
+SRC_URI = "git://github.com/openstack/python-heatclient.git;branch=stable/newton"
 
-PV = "0.6.0+git${SRCPV}"
-SRCREV = "7cca8394b8ab2f4dccb982ae789b1b2985627115"
+PV = "1.5.0+git${SRCPV}"
+SRCREV = "3c3f8ee2c6c988c95c949cb20fa7969a7e4a9c1a"
 S = "${WORKDIR}/git"
 
 inherit setuptools
